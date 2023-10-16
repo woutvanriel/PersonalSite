@@ -11,12 +11,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './pages/admin/interceptors/auth.interceptor';
+import { MediaPipe } from './pipes/media.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
-    ConfirmComponent
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,

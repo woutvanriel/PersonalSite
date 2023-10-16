@@ -45,7 +45,7 @@ export class HttpService {
 
   private getObservableArraybuffer(
     url: string,
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     body?: object,
     headers?: any
   ) {
@@ -99,7 +99,7 @@ export class HttpService {
 
   httpCall<T>(
     url: string,
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     showSpinner: boolean,
     body?: any,
     headers?: any
@@ -125,7 +125,7 @@ export class HttpService {
 
   private getObservable<T>(
     url: string,
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     body?: object,
     headers?: any
   ) {
@@ -138,6 +138,8 @@ export class HttpService {
         return this.httpPut<T>(url, body, headers);
       case 'DELETE':
         return this.httpDelete<T>(url, body, headers);
+      case 'PATCH':
+        return this.httpPatch<T>(url, body, headers);
       default:
         return throwError(() => new Error('Invalid method.'));
     }
@@ -160,6 +162,10 @@ export class HttpService {
     return this.http.put<T>(`${environment.apiUrl}/${url}`, body, { headers });
   }
 
+  private httpPatch<T>(url: string, body?: object, headers?: any): Observable<T> {
+    return this.http.patch<T>(`${environment.apiUrl}/${url}`, body, { headers });
+  }
+
   private httpDelete<T>(
     url: string,
     body?: object,
@@ -178,7 +184,7 @@ export class HttpService {
     if (err.status === 401) {
       if (this.router.url !== '/') {
         localStorage.removeItem('jwt');
-        window.location = '/admin/login' as Location | (string & Location);
+        this.router.navigate(['/admin/login']);
       }
     } else if (err.status === 403) {
       this.alert.show(err.error.Message).then(() => {

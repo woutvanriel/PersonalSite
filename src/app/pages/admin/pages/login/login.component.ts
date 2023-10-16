@@ -26,7 +26,7 @@ export class LoginComponent {
     if (this.Form.valid)
       this.auth.login(this.Form.value.username!, this.Form.value.password!).then(res => {
         this.auth.setJwt(res.jwt);
-        this.router.navigate(['..', 'projects'], { relativeTo: this.ar });
+        this.router.navigate(['..', 'pages'], { relativeTo: this.ar });
       });
   }
 }
