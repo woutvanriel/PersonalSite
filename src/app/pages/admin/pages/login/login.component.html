@@ -1,0 +1,17 @@
+<form [formGroup]="Form">
+  <div class="form-group">
+    <label>Username</label>
+    <input placeholder="Username" class="form-control" formControlName="username">
+    <div *ngIf="Form.controls.username.touched && Form.controls.username.errors">
+      <p *ngIf="Form.controls.username.errors['required']">Username is required.</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" placeholder="Password" class="form-control" formControlName="password">
+    <div *ngIf="Form.controls.password.touched && Form.controls.password.errors">
+      <p *ngIf="Form.controls.password.errors['required']">Password is required.</p>
+    </div>
+  </div>
+  <a (click)="submit()">submit</a>
+</form>
