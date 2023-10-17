@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -38,5 +39,10 @@ export class OverviewComponent implements OnInit {
   getTypeValue(val: ProjectContentType | null) {
     if (!val) return '';
     return ProjectContentType[val];
+  }
+
+  drop(ev: CdkDragDrop<ProjectContent>) {
+    moveItemInArray(this.content, ev.previousIndex, ev.currentIndex);
+    this.projectContent.saveOrder(this.content.map((c) => c.id!));
   }
 }

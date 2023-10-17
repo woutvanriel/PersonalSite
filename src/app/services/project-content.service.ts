@@ -34,4 +34,8 @@ export class ProjectContentService {
   uploadImage(data: FormData) {
     return this.http.httpCall<null>('projectcontent/uploadimage', 'POST', true, data);
   }
+
+  saveOrder(ids: string[]) {
+    return this.http.httpCall<null>('projectcontent/saveorder', 'POST', true, ids);
+  }
 }

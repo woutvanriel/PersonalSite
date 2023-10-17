@@ -1,0 +1,19 @@
+<a routerLink="..">Terug</a>
+<a routerLink="details" *ngIf="Form.controls.id.value">Details</a>
+<form [formGroup]="Form">
+  <div class="form-group">
+    <label>Slug</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Slug"
+      formControlName="slug"
+      (change)="validateUrl()"
+    />
+    <div *ngIf="Form.controls.slug.errors && Form.controls.slug.touched">
+      <p *ngIf="Form.controls.slug.errors['required']">Slug is verplicht.</p>
+    </div>
+  </div>
+  <a class="btn btn-primary" (click)="save()">Opslaan</a>
+  <a class="btn btn-danger" (click)="deletePage()">Verwijder</a>
+</form>

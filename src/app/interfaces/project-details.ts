@@ -12,3 +12,21 @@ export interface ProjectDetails {
   title: string | null;
   description: string | null;
 }
+
+export function DetailFromPartial(
+  input: Partial<{
+    id: string | null;
+    language: string | null;
+    title: string | null;
+    description: string | null;
+    project: string | null;
+  }>,
+): ProjectDetails {
+  return {
+    id: input.id || null,
+    languageId: input.language || null,
+    title: input.title || null,
+    description: input.description || null,
+    projectId: input.project || null,
+  };
+}
