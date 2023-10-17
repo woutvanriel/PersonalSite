@@ -4,12 +4,15 @@ import { Jwt } from 'src/app/interfaces/jwt';
 import { HttpService } from 'src/app/services/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   jwt: string | null;
 
-  constructor(private router: Router, private http: HttpService) {
+  constructor(
+    private router: Router,
+    private http: HttpService,
+  ) {
     this.jwt = null;
     try {
       this.jwt = localStorage.getItem('jwt');
@@ -22,7 +25,7 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.httpCall<Jwt>('auth/login', 'POST', true, {
       username,
-      password
+      password,
     });
   }
 

@@ -8,7 +8,7 @@ describe('ConfirmComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConfirmComponent]
+      declarations: [ConfirmComponent],
     });
     fixture = TestBed.createComponent(ConfirmComponent);
     component = fixture.componentInstance;

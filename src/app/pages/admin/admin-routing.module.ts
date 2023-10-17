@@ -12,33 +12,40 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'pages',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
       },
       {
         path: 'pages',
-        loadChildren: () => import('./pages/pages/pages.module').then(m => m.PagesModule),
-        canActivate: [ adminGuard ]
+        loadChildren: () =>
+          import('./pages/pages/pages.module').then((m) => m.PagesModule),
+        canActivate: [adminGuard],
       },
       {
         path: 'languages',
-        loadChildren: () => import('./pages/languages/languages.module').then(m => m.LanguagesModule),
-        canActivate: [ adminGuard ]
+        loadChildren: () =>
+          import('./pages/languages/languages.module').then(
+            (m) => m.LanguagesModule,
+          ),
+        canActivate: [adminGuard],
       },
       {
         path: 'projects',
-        loadChildren: () => import('./pages/projects/projects.module').then(m => m.ProjectsModule),
-        canActivate: [ adminGuard ]
-      }
-    ]
-  }
+        loadChildren: () =>
+          import('./pages/projects/projects.module').then(
+            (m) => m.ProjectsModule,
+          ),
+        canActivate: [adminGuard],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -6,16 +6,14 @@ import { LanguageService } from 'src/app/services/language.service';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements OnInit {
   page = 0;
   languages: Language[] = [];
   totalLanguages = 0;
 
-  constructor(
-    private language: LanguageService
-  ) { }
+  constructor(private language: LanguageService) {}
 
   ngOnInit(): void {
     this.getLanguages();
@@ -23,7 +21,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getLanguages() {
-    this.language.getLanguages(this.page).then(res => {
+    this.language.getLanguages(this.page).then((res) => {
       this.languages = res;
     });
   }
@@ -34,7 +32,7 @@ export class OverviewComponent implements OnInit {
   }
 
   countLanguages() {
-    this.language.countLanguages().then(res => {
+    this.language.countLanguages().then((res) => {
       this.totalLanguages = res;
     });
   }

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { ConfirmComponent } from '../components/confirm/confirm.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConfirmService {
   public overlayRef: OverlayRef | null = null;

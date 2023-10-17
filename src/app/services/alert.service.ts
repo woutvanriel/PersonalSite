@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { AlertComponent } from '../components/alert/alert.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlertService {
   public overlayRef: OverlayRef | null = null;

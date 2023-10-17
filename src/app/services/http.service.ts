@@ -7,7 +7,7 @@ import { SpinnerService } from './spinner.service';
 import { AlertService } from './alert.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
   @Output('getRequestMade') getRequestMade = new BehaviorSubject<string>('');
@@ -19,20 +19,20 @@ export class HttpService {
     private http: HttpClient,
     private spinner: SpinnerService,
     private router: Router,
-    private alert: AlertService
+    private alert: AlertService,
   ) {}
 
   httpCallArraybuffer(
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     showSpinner: boolean,
-    body: any
+    body: any,
   ) {
     if (showSpinner) {
       this.spinner.show();
     }
     const promise = firstValueFrom(
-      this.getObservableArraybuffer(url, method, body)
+      this.getObservableArraybuffer(url, method, body),
     );
     promise.catch((err: HttpErrorResponse) => this.errorHandler(err));
     if (showSpinner) {
@@ -47,7 +47,7 @@ export class HttpService {
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     body?: object,
-    headers?: any
+    headers?: any,
   ) {
     switch (method) {
       case 'GET':
@@ -102,7 +102,7 @@ export class HttpService {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     showSpinner: boolean,
     body?: any,
-    headers?: any
+    headers?: any,
   ): Promise<T> {
     if (showSpinner) {
       this.spinner.show();
@@ -127,7 +127,7 @@ export class HttpService {
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
     body?: object,
-    headers?: any
+    headers?: any,
   ) {
     switch (method) {
       case 'GET':
@@ -153,7 +153,7 @@ export class HttpService {
   private httpPost<T>(
     url: string,
     body?: object,
-    headers?: any
+    headers?: any,
   ): Observable<T> {
     return this.http.post<T>(`${environment.apiUrl}/${url}`, body, { headers });
   }
@@ -162,14 +162,20 @@ export class HttpService {
     return this.http.put<T>(`${environment.apiUrl}/${url}`, body, { headers });
   }
 
-  private httpPatch<T>(url: string, body?: object, headers?: any): Observable<T> {
-    return this.http.patch<T>(`${environment.apiUrl}/${url}`, body, { headers });
+  private httpPatch<T>(
+    url: string,
+    body?: object,
+    headers?: any,
+  ): Observable<T> {
+    return this.http.patch<T>(`${environment.apiUrl}/${url}`, body, {
+      headers,
+    });
   }
 
   private httpDelete<T>(
     url: string,
     body?: object,
-    headers?: any
+    headers?: any,
   ): Observable<T> {
     return this.http.delete<T>(`${environment.apiUrl}/${url}`, {
       headers,

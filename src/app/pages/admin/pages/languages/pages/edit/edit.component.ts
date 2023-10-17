@@ -9,12 +9,12 @@ import { LanguageService } from 'src/app/services/language.service';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
   Form = new FormGroup({
     id: new FormControl<string | null>(null),
-    name: new FormControl<string>('', Validators.required)
+    name: new FormControl<string>('', Validators.required),
   });
 
   imageUrl: string | null = null;
@@ -24,11 +24,11 @@ export class EditComponent implements OnInit {
     private ar: ActivatedRoute,
     private router: Router,
     private confirm: ConfirmService,
-    private alert: AlertService
+    private alert: AlertService,
   ) {}
 
   ngOnInit(): void {
-    this.ar.params.subscribe(params => {
+    this.ar.params.subscribe((params) => {
       if (params['id'] !== 'new') {
         this.Form.controls.id.setValue(params['id']);
         this.getLanguage();
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
 
   getLanguage() {
     if (this.Form.value.id)
-      this.language.getLanguage(this.Form.value.id).then(res => {
+      this.language.getLanguage(this.Form.value.id).then((res) => {
         this.Form.patchValue(res);
         this.imageUrl = res.flag || null;
       });
@@ -50,8 +50,8 @@ export class EditComponent implements OnInit {
       const file = input.files[0];
       const data = new FormData();
       data.append('file', file);
-      if (this.Form.value.id) data.append('id', this.Form.value.id)
-      this.language.uploadImage(data).then(res => {
+      if (this.Form.value.id) data.append('id', this.Form.value.id);
+      this.language.uploadImage(data).then((res) => {
         this.imageUrl = res;
       });
     }
@@ -68,13 +68,17 @@ export class EditComponent implements OnInit {
     this.Form.markAllAsTouched();
     if (this.Form.valid) {
       if (this.Form.value.id) {
-        this.language.editLanguage(LanguageFromPartial(this.Form.value)).then(() => {
-          this.alert.show('De taal is opgeslagen');
-        });
+        this.language
+          .editLanguage(LanguageFromPartial(this.Form.value))
+          .then(() => {
+            this.alert.show('De taal is opgeslagen');
+          });
       } else {
-        this.language.addLanguage(LanguageFromPartial(this.Form.value)).then(res => {
-          this.router.navigate(['..', res], { relativeTo: this.ar });
-        });
+        this.language
+          .addLanguage(LanguageFromPartial(this.Form.value))
+          .then((res) => {
+            this.router.navigate(['..', res], { relativeTo: this.ar });
+          });
       }
     }
   }
@@ -82,12 +86,14 @@ export class EditComponent implements OnInit {
   remove() {
     if (this.Form.value.id) {
       const id = this.Form.value.id;
-      this.confirm.show('Weet je zeker dat je de taal wilt verwijderen?').then(cont => {
-        if (cont)
-          this.language.deleteLanguage(id).then(() => {
-            this.router.navigate(['..'], { relativeTo: this.ar });
-          });
-      });
+      this.confirm
+        .show('Weet je zeker dat je de taal wilt verwijderen?')
+        .then((cont) => {
+          if (cont)
+            this.language.deleteLanguage(id).then(() => {
+              this.router.navigate(['..'], { relativeTo: this.ar });
+            });
+        });
     }
   }
 }

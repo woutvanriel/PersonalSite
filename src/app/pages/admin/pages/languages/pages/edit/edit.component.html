@@ -2,17 +2,25 @@
 <form [formGroup]="Form">
   <div class="form-group">
     <label>Naam</label>
-    <input type="text" class="form-control" id="name" formControlName="name">
+    <input type="text" class="form-control" id="name" formControlName="name" />
     <div *ngIf="Form.controls.name.touched && Form.controls.name.errors">
       <p *ngIf="Form.controls.name.errors['required']">Naam is verplicht.</p>
     </div>
   </div>
   <div class="form-group" *ngIf="Form.controls.id.value">
     <label>Vlag</label>
-    <input type="file" class="form-control" id="flag" (change)="uploadFile($event)" accept="image/*">
-    <img [src]="imageUrl | media">
+    <input
+      type="file"
+      class="form-control"
+      id="flag"
+      (change)="uploadFile($event)"
+      accept="image/*"
+    />
+    <img [src]="imageUrl | media" />
     <a (click)="deleteFile()" class="btn btn-danger">Verwijder vlag</a>
   </div>
   <a class="btn btn-primary" (click)="save()">Opslaan</a>
-  <a class="btn btn-danger" (click)="remove()" *ngIf="Form.controls.id.value">Verwijderen</a>
+  <a class="btn btn-danger" (click)="remove()" *ngIf="Form.controls.id.value"
+    >Verwijderen</a
+  >
 </form>

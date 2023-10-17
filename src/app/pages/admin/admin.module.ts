@@ -9,18 +9,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    AdminComponent,
-    HeaderComponent,
-    LoginComponent,
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    SharedModule
-  ],
+  declarations: [AdminComponent, HeaderComponent, LoginComponent],
+  imports: [CommonModule, AdminRoutingModule, SharedModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -29,4 +20,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
     },
   ],
 })
-export class AdminModule { }
+export class AdminModule {}

@@ -9,18 +9,20 @@ const routes: Routes = [
     children: [
       {
         path: 'admin',
-        loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+        loadChildren: () =>
+          import('./pages/admin/admin.module').then((m) => m.AdminModule),
       },
       {
         path: '',
-        loadChildren: () => import('./pages/website/website.module').then(m => m.WebsiteModule)
-      }
-    ]
+        loadChildren: () =>
+          import('./pages/website/website.module').then((m) => m.WebsiteModule),
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

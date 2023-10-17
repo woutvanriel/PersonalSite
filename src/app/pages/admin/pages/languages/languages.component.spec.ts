@@ -8,7 +8,7 @@ describe('LanguagesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LanguagesComponent]
+      declarations: [LanguagesComponent],
     });
     fixture = TestBed.createComponent(LanguagesComponent);
     component = fixture.componentInstance;

@@ -6,16 +6,8 @@ import { WebsiteComponent } from './website.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 
-
 @NgModule({
-  declarations: [
-    WebsiteComponent,
-    HeaderComponent,
-    HomeComponent
-  ],
-  imports: [
-    CommonModule,
-    WebsiteRoutingModule
-  ]
+  declarations: [WebsiteComponent, HeaderComponent, HomeComponent],
+  imports: [CommonModule, WebsiteRoutingModule],
 })
-export class WebsiteModule { }
+export class WebsiteModule {}

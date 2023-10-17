@@ -1,0 +1,33 @@
+<a routerLink="..">Terug</a>
+<a routerLink="details" *ngIf="Form.controls.id.value">Details</a>
+<form [formGroup]="Form">
+  <div class="form-group">
+    <label>Slug</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Slug"
+      formControlName="slug"
+      (change)="validateUrl()"
+    />
+    <div *ngIf="Form.controls.slug.errors && Form.controls.slug.touched">
+      <p *ngIf="Form.controls.slug.errors['required']">Slug is verplicht.</p>
+    </div>
+  </div>
+  <div *ngIf="Form.controls.id.value">
+    <input
+      type="file"
+      accept="image/*"
+      multiple="true"
+      (change)="change($event)"
+    />
+    <div *ngFor="let image of Images">
+      <img [src]="image.location | media" />
+      <a class="btn btn-danger" (click)="deleteImage(image.id)"
+        >Verwijder afbeelding</a
+      >
+    </div>
+  </div>
+  <a class="btn btn-primary" (click)="save()">Opslaan</a>
+  <a class="btn btn-danger" (click)="deleteProject()">Verwijder</a>
+</form>

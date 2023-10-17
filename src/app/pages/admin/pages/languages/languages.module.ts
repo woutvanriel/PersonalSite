@@ -8,18 +8,13 @@ import { OverviewComponent } from './pages/overview/overview.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [
-    LanguagesComponent,
-    EditComponent,
-    OverviewComponent
-  ],
+  declarations: [LanguagesComponent, EditComponent, OverviewComponent],
   imports: [
     CommonModule,
     LanguagesRoutingModule,
     MatPaginatorModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class LanguagesModule { }
+export class LanguagesModule {}

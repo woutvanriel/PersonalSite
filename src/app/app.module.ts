@@ -14,11 +14,7 @@ import { AuthInterceptor } from './pages/admin/interceptors/auth.interceptor';
 import { MediaPipe } from './pipes/media.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AlertComponent,
-    ConfirmComponent,
-  ],
+  declarations: [AppComponent, AlertComponent, ConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +34,6 @@ import { MediaPipe } from './pipes/media.pipe';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

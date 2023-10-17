@@ -4,7 +4,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { SpinnerComponent } from '../components/spinner/spinner.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpinnerService {
   public overlayRef: OverlayRef | null = null;

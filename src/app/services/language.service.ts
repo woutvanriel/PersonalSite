@@ -3,20 +3,25 @@ import { HttpService } from './http.service';
 import { Language } from '../interfaces/language';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LanguageService {
-
-  constructor(
-    private http: HttpService
-  ) { }
+  constructor(private http: HttpService) {}
 
   getLanguages(page: number) {
-    return this.http.httpCall<Language[]>(`language/getlanguages/${page}`, 'GET', true);
+    return this.http.httpCall<Language[]>(
+      `language/getlanguages/${page}`,
+      'GET',
+      true,
+    );
   }
 
   getLanguage(id: string) {
-    return this.http.httpCall<Language>(`language/getlanguage/${id}`, 'GET', true);
+    return this.http.httpCall<Language>(
+      `language/getlanguage/${id}`,
+      'GET',
+      true,
+    );
   }
 
   countLanguages() {
@@ -24,22 +29,45 @@ export class LanguageService {
   }
 
   addLanguage(lang: Language) {
-    return this.http.httpCall<string>('language/addlanguage', 'POST', true, lang);
+    return this.http.httpCall<string>(
+      'language/addlanguage',
+      'POST',
+      true,
+      lang,
+    );
   }
 
   editLanguage(lang: Language) {
-    return this.http.httpCall<null>('language/editlanguage', 'PATCH', true, lang);
+    return this.http.httpCall<null>(
+      'language/editlanguage',
+      'PATCH',
+      true,
+      lang,
+    );
   }
 
   deleteLanguage(id: string) {
-    return this.http.httpCall<null>(`language/deletelanguage/${id}`, 'DELETE', true);
+    return this.http.httpCall<null>(
+      `language/deletelanguage/${id}`,
+      'DELETE',
+      true,
+    );
   }
 
   uploadImage(data: FormData) {
-    return this.http.httpCall<string>('language/uploadimage', 'POST', true, data);
+    return this.http.httpCall<string>(
+      'language/uploadimage',
+      'POST',
+      true,
+      data,
+    );
   }
 
   deleteImage(id: string) {
-    return this.http.httpCall<null>(`language/deleteimage/${id}`, 'DELETE', true);
+    return this.http.httpCall<null>(
+      `language/deleteimage/${id}`,
+      'DELETE',
+      true,
+    );
   }
 }

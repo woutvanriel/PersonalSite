@@ -11,18 +11,18 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: OverviewComponent
+        component: OverviewComponent,
       },
       {
         path: ':id',
-        component: EditComponent
-      }
-    ]
-  }
+        component: EditComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LanguagesRoutingModule { }
+export class LanguagesRoutingModule {}
