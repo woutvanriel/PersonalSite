@@ -1,0 +1,5 @@
+<app-text-content [content]="content" *ngIf="content.type === 0"></app-text-content>
+<app-image-content [content]="content" *ngIf="content.type === 1"></app-image-content>
+<app-html-content [content]="content" *ngIf="content.type === 2"></app-html-content>
+<app-link-content [content]="content" *ngIf="content.type === 3"></app-link-content>
+<app-project-content [content]="content" *ngIf="content.type === 4"></app-project-content>

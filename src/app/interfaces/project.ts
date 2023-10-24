@@ -7,6 +7,7 @@ export interface Project {
   images?: Image[];
   content?: ProjectContent[];
   details?: ProjectDetails[];
+  title?: string | null;
   slug?: string | null;
   order?: number | null;
 }

@@ -16,6 +16,7 @@ export class GeneralComponent implements OnInit {
   Form = new FormGroup({
     id: new FormControl<string | null>(null),
     slug: new FormControl<string | null>('', Validators.required),
+    title: new FormControl<string | null>('', Validators.required),
   });
 
   Images: Image[] = [];

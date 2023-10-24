@@ -8,6 +8,14 @@ import { Language } from '../interfaces/language';
 export class LanguageService {
   constructor(private http: HttpService) {}
 
+  getLanguagesHeader() {
+    return this.http.httpCall<Language[]>(
+      `language/getlanguages`,
+      'GET',
+      true,
+    );
+  }
+
   getLanguages(page: number) {
     return this.http.httpCall<Language[]>(
       `language/getlanguages/${page}`,

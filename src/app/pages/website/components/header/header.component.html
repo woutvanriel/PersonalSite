@@ -1,1 +1,13 @@
-<p>header works!</p>
+<div class="left">
+  <img src="assets/wout.jpg">
+</div>
+<div class="right">
+  <ul>
+    <li *ngFor="let page of pages">
+      <a [routerLink]="page.slug" routerLinkActive="active">{{ page.details?.[0]?.title }}</a>
+    </li>
+  </ul>
+  <a (click)="openLanguagePopup()">
+    <img [src]="getLanguage() | media">
+  </a>
+</div>

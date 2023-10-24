@@ -16,6 +16,10 @@ export class ProjectService {
     return this.http.httpCall<Project>(`project/getproject/${id}`, 'GET', true);
   }
 
+  getProjectSlug(slug: string) {
+    return this.http.httpCall<Project>(`project/getprojectbyslug/${slug}`, 'GET', true);
+  }
+
   getAllProjects() {
     return this.http.httpCall<Project[]>('project/getallprojects', 'GET', true);
   }

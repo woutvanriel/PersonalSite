@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PreferredLanguageService {
+  @Output() languageChanged = new EventEmitter<string>();
   language = 'Nederlands';
 
   constructor() {
@@ -16,5 +17,6 @@ export class PreferredLanguageService {
   setLanguage(lang: string) {
     this.language = lang;
     localStorage.setItem('language', lang);
+    this.languageChanged.emit(lang);
   }
 }

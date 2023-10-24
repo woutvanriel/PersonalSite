@@ -1,0 +1,2 @@
+<a [routerLink]="content.alt" *ngIf="!externalLink(content.alt)">{{ content.content }}</a>
+<a [href]="content.alt" *ngIf="externalLink(content.alt)">{{ content.content }}</a>

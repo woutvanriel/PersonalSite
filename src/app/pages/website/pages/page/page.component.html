@@ -1,0 +1,6 @@
+<div *ngIf="page && page.details">
+  <h1>{{ page.details[0].title }}</h1>
+  <div *ngFor="let content of page.details[0].content">
+    <app-content-container [content]="content"></app-content-container>
+  </div>
+</div>

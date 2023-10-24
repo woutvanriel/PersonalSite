@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContentFromPartial, ProjectContentType } from 'src/app/interfaces/project-content';
+import { ContentType } from 'src/app/interfaces/content';
+import { ContentFromPartial } from 'src/app/interfaces/project-content';
 import { AlertService } from 'src/app/services/alert.service';
 import { ConfirmService } from 'src/app/services/confirm.service';
 import { ProjectContentService } from 'src/app/services/project-content.service';
@@ -15,8 +16,9 @@ export class EditComponent implements OnInit {
   Form = new FormGroup({
     id: new FormControl<string | null>(null),
     detail: new FormControl<string | null>(null),
-    type: new FormControl<ProjectContentType | null>(null),
+    type: new FormControl<ContentType | null>(null),
     content: new FormControl<string | null>(null),
+    alt: new FormControl<string | null>(null),
   });
 
   constructor(
@@ -51,7 +53,7 @@ export class EditComponent implements OnInit {
   }
 
   getTypeValues() {
-    return Object.keys(ProjectContentType).filter(
+    return Object.keys(ContentType).filter(
       (type) => isNaN(type as any) && type !== 'values',
     );
   }

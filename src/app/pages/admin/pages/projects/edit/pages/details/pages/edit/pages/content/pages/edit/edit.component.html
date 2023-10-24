@@ -12,6 +12,12 @@
     <input *ngIf="Form.value.type === 1 && Form.value.id" (change)="change($event)" type="file" accept="image/*" multiple="false" />
     <img *ngIf="Form.value.type === 1 && Form.value.id" [src]="Form.value.content | media" />
     <quill-editor formControlName="content" *ngIf="Form.value.type === 2"></quill-editor>
+    <div *ngIf="Form.value.type === 3">
+      <label>Text</label>
+      <input formControlName="content" />
+      <label>Link</label>
+      <input formControlName="alt" />
+    </div>
   </div>
   <a class="btn btn-primary" (click)="save()">Opslaan</a>
   <a class="btn btn-danger" (click)="deleteContent()">Verwijderen</a>

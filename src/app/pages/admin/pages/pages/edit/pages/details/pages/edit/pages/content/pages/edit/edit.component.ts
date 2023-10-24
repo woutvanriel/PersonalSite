@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PageContentType, ContentFromPartial } from 'src/app/interfaces/page-content';
+import { ContentType } from 'src/app/interfaces/content';
+import { ContentFromPartial } from 'src/app/interfaces/page-content';
 import { AlertService } from 'src/app/services/alert.service';
 import { ConfirmService } from 'src/app/services/confirm.service';
 import { PageContentService } from 'src/app/services/page-content.service';
@@ -15,8 +16,9 @@ export class EditComponent implements OnInit {
   Form = new FormGroup({
     id: new FormControl<string | null>(null),
     detail: new FormControl<string | null>(null),
-    type: new FormControl<PageContentType | null>(null),
+    type: new FormControl<ContentType | null>(null),
     content: new FormControl<string | null>(null),
+    alt: new FormControl<string | null>(null),
   });
 
   constructor(
@@ -46,12 +48,13 @@ export class EditComponent implements OnInit {
       this.Form.patchValue({
         type: res.type,
         content: res.content,
+        alt: res.alt
       });
     });
   }
 
   getTypeValues() {
-    return Object.keys(PageContentType).filter(
+    return Object.keys(ContentType).filter(
       (type) => isNaN(type as any) && type !== 'values',
     );
   }

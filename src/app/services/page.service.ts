@@ -12,8 +12,16 @@ export class PageService {
     return this.http.httpCall<Page[]>('Page/getPages', 'GET', true);
   }
 
+  getPagesHeader() {
+    return this.http.httpCall<Page[]>('Page/getPagesheader', 'GET', true);
+  }
+
   getPage(id: string) {
     return this.http.httpCall<Page>(`Page/getPage/${id}`, 'GET', true);
+  }
+
+  getPageSlug(id: string) {
+    return this.http.httpCall<Page>(`Page/getPagebyslug/${id}`, 'GET', true);
   }
 
   getAllPages() {

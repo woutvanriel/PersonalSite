@@ -1,0 +1,8 @@
+<a (click)="closePopup()">close</a>
+<ul>
+  <li *ngFor="let language of languages">
+    <a (click)="setLanguage(language)">
+      <img [src]="language.flag | media">
+    </a>
+  </li>
+</ul>

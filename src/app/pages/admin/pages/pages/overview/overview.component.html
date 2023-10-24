@@ -2,11 +2,13 @@
   <thead>
     <tr>
       <th>Page</th>
+      <th>Slug</th>
       <th><a routerLink="new">Nieuw</a></th>
     </tr>
   </thead>
   <tbody cdkDropList (cdkDropListDropped)="drop($event)">
     <tr cdkDrag *ngFor="let Page of Pages">
+      <td>{{ Page.title }}</td>
       <td>{{ Page.slug }}</td>
       <td><a [routerLink]="Page.id">Aanpassen</a></td>
     </tr>

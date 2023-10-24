@@ -2,7 +2,8 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PageContent, PageContentType } from 'src/app/interfaces/page-content';
+import { ContentType } from 'src/app/interfaces/content';
+import { PageContent } from 'src/app/interfaces/page-content';
 import { PageContentService } from 'src/app/services/page-content.service';
 
 @Component({
@@ -36,9 +37,9 @@ export class OverviewComponent implements OnInit {
     });
   }
 
-  getTypeValue(val: PageContentType | null) {
+  getTypeValue(val: ContentType | null) {
     if (!val) return '';
-    return PageContentType[val];
+    return ContentType[val];
   }
 
   drop(ev: CdkDragDrop<PageContent>) {
