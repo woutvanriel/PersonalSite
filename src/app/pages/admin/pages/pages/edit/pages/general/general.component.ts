@@ -41,6 +41,7 @@ export class GeneralComponent implements OnInit {
       this.Page.getPage(this.Form.value.id).then((res) => {
         this.Form.patchValue({
           slug: res.slug,
+          title: res.title,
         });
       });
   }
@@ -60,7 +61,7 @@ export class GeneralComponent implements OnInit {
       else
         this.Page
           .editPage(this.Form.value)
-          .then((res) => {
+          .then(() => {
             this.alert.show('Page is opgeslagen.');
           })
           .catch((err: HttpErrorResponse) => {
@@ -105,7 +106,7 @@ export class GeneralComponent implements OnInit {
     const id = this.Form.value.id;
     if (id)
       this.confirm
-        .show('Weet je zeker dat je dit Page wilt verwijderen?')
+        .show('Weet je zeker dat je deze Page wilt verwijderen?')
         .then((res) => {
           if (res)
             this.Page.deletePage(id).then(() => {

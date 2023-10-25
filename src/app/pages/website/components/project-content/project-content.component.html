@@ -1,1 +1,23 @@
-<p>project-content works!</p>
+<section class="album">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div *ngFor="let project of projects; let projectIndex = index" class="col">
+      <div *ngIf="project.details" class="card shadow-sm">
+        <div class="card-img-top">
+          <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let image of project.images">
+              <div class="picsum-img-wrapper">
+                <img [src]="image.location | media" />
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ project.details[0].title }}</h5>
+          <p class="card-text">{{ project.details[0].description }}</p>
+          <a [routerLink]="['/project', project.slug]" class="btn btn-primary">Lees meer</a>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" *ngIf="canloadmore" (click)="getProjecten()">Meer</button>
+  </div>
+</section>

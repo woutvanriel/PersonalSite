@@ -1,6 +1,17 @@
-<div *ngIf="page && page.details">
-  <h1>{{ page.details[0].title }}</h1>
-  <div *ngFor="let content of page.details[0].content">
-    <app-content-container [content]="content"></app-content-container>
+<section class="py-5 text-center" *ngIf="page && page.details">
+  <div class="text-center pb-5" *ngIf="page.slug !== 'home'">
+    <h1 class="py-lg-5 display-4">{{ page.details[0].title }}</h1>
+    <p class="lead text-body-secondary">{{ page.details[0].description }}</p>
   </div>
-</div>
+  <div class="text-center pb-5" *ngIf="page.slug === 'home'">
+    <img class="py-lg-5 mb-5" src="assets/wout.png">
+    <p class="lead text-body-secondary">{{ page.details[0].description }}</p>
+  </div>
+  <div class="py-3 bg-body-tertiary ">
+    <article class="p-2" *ngFor="let content of page.details[0].content">
+      <div class="container">
+        <app-content-container [content]="content"></app-content-container>
+      </div>
+    </article>
+  </div>
+</section>

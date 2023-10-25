@@ -65,4 +65,12 @@ export class ProjectService {
   saveOrder(ids: string[]) {
     return this.http.httpCall<null>('project/saveorder', 'POST', true, ids);
   }
+
+  getProjectsDetails(page: number) {
+    return this.http.httpCall<Project[]>(
+      `project/getprojectsdetails/${page}`,
+      'GET',
+      true,
+    );
+  }
 }

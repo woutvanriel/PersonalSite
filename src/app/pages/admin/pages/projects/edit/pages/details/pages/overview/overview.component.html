@@ -1,17 +1,17 @@
-<a routerLink="..">Terug</a>
-<table>
+<a class="btn btn-secondary" routerLink="..">Terug</a>
+<table class="table">
   <thead>
     <tr>
       <th>Taal</th>
       <th>Titel</th>
-      <th><a routerLink="new">Nieuw</a></th>
+      <th><a class="btn btn-outline-primary" routerLink="new">Nieuw</a></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let detail of details">
       <td>{{ detail.language?.name }}</td>
       <td>{{ detail.title }}</td>
-      <td><a [routerLink]="detail.id">Aanpassen</a></td>
+      <td><a class="btn btn-outline-secondary" [routerLink]="detail.id">Aanpassen</a></td>
     </tr>
   </tbody>
 </table>

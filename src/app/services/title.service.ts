@@ -7,6 +7,6 @@ export class TitleService {
   constructor() {}
 
   setTitle(title: string) {
-    document.title = title;
+    document.title = `Wout van Riel - ${title}`;
   }
 }

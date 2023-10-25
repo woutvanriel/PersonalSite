@@ -1,17 +1,17 @@
-<a routerLink="..">Terug</a>
-<table>
+<a class="btn btn-secondary" routerLink="..">Terug</a>
+<table class="table">
   <thead>
     <tr>
       <th>Type</th>
       <th>Content</th>
-      <th><a routerLink="new">Nieuw</a></th>
+      <th><a class="btn btn-outline-primary" routerLink="new">Nieuw</a></th>
     </tr>
   </thead>
   <tbody cdkDropList (cdkDropListDropped)="drop($event)">
     <tr cdkDrag *ngFor="let item of content">
       <td>{{ getTypeValue(item.type) }}</td>
       <td>{{ item.content }}</td>
-      <td><a [routerLink]="item.id">Bewerk</a></td>
+      <td><a class="btn btn-outline-secondary" [routerLink]="item.id">Bewerk</a></td>
     </tr>
   </tbody>
 </table>

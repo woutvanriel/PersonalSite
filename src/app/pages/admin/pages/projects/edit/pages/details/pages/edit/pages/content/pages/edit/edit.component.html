@@ -1,24 +1,36 @@
-<a routerLink="..">Terug</a>
+<a class="btn btn-secondary" routerLink="..">Terug</a>
 <form [formGroup]="Form">
-  <div class="form-group">
+  <div class="form-group pt-2">
     <label>Type</label>
-    <select formControlName="type">
+    <select class="form-control" formControlName="type">
       <option *ngFor="let value of getTypeValues(); let i = index" [ngValue]="i">{{ value }}</option>
     </select>
   </div>
-  <div>
-    <label>Content</label>
-    <textarea formControlName="content" *ngIf="Form.value.type === 0"></textarea>
-    <input *ngIf="Form.value.type === 1 && Form.value.id" (change)="change($event)" type="file" accept="image/*" multiple="false" />
-    <img *ngIf="Form.value.type === 1 && Form.value.id" [src]="Form.value.content | media" />
-    <quill-editor formControlName="content" *ngIf="Form.value.type === 2"></quill-editor>
+  <div class="form-group pt-2">
+    <label *ngIf="Form.value.type !== 4">Content</label>
+    <textarea class="form-control" formControlName="content" *ngIf="Form.value.type === 0"></textarea>
+    <input class="form-control" *ngIf="Form.value.type === 1 && Form.value.id" (change)="change($event)" type="file" accept="image/*" multiple="false" />
+    <div class="album mt-3" *ngIf="Form.value.type === 1 && Form.value.id && Form.value.content">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-img-top">
+              <img [src]="Form.value.content | media" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <quill-editor class="form-control" formControlName="content" *ngIf="Form.value.type === 2"></quill-editor>
     <div *ngIf="Form.value.type === 3">
       <label>Text</label>
-      <input formControlName="content" />
+      <input class="form-control mt-2" formControlName="content" />
       <label>Link</label>
-      <input formControlName="alt" />
+      <input class="form-control mt-2" formControlName="alt" />
     </div>
   </div>
-  <a class="btn btn-primary" (click)="save()">Opslaan</a>
-  <a class="btn btn-danger" (click)="deleteContent()">Verwijderen</a>
+  <div class="mt-2">
+    <a class="btn btn-primary" (click)="save()">Opslaan</a>
+    <a class="btn btn-danger mx-2" (click)="deleteContent()">Verwijderen</a>
+  </div>
 </form>

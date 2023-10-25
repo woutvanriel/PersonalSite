@@ -1,0 +1,19 @@
+.modal {
+  display: initial;
+}
+
+img {
+  max-height: 50px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 5px;
+}

@@ -1,21 +1,16 @@
-<mat-paginator
-  [pageSizeOptions]="[20]"
-  [pageSize]="20"
-  [pageIndex]="page"
-  [length]="totalLanguages"
-  (page)="pageChange($event)"
-></mat-paginator>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Taal</th>
-      <th><a routerLink="new">Nieuw</a></th>
+      <th class="text-right">
+        <a class="btn btn-outline-primary" routerLink="new">Nieuw</a>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let lang of languages">
       <td>{{ lang.name }}</td>
-      <td><a [routerLink]="lang.id">Aanpassen</a></td>
+      <td><a class="btn btn-outline-secondary" [routerLink]="lang.id">Aanpassen</a></td>
     </tr>
   </tbody>
 </table>

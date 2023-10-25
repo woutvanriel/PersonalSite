@@ -1,5 +1,5 @@
 <form [formGroup]="Form">
-  <div class="form-group">
+  <div class="form-group pt-2">
     <label>Username</label>
     <input
       placeholder="Username"
@@ -14,7 +14,7 @@
       </p>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group pt-2">
     <label>Password</label>
     <input
       type="password"
@@ -30,5 +30,5 @@
       </p>
     </div>
   </div>
-  <a (click)="submit()">submit</a>
+  <a class="btn btn-primary mt-2" (click)="submit()">Inloggen</a>
 </form>

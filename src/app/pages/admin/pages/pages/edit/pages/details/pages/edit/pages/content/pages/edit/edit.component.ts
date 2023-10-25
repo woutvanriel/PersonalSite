@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContentType } from 'src/app/interfaces/content';
 import { ContentFromPartial } from 'src/app/interfaces/page-content';
@@ -16,7 +16,7 @@ export class EditComponent implements OnInit {
   Form = new FormGroup({
     id: new FormControl<string | null>(null),
     detail: new FormControl<string | null>(null),
-    type: new FormControl<ContentType | null>(null),
+    type: new FormControl<ContentType | null>(null, Validators.required),
     content: new FormControl<string | null>(null),
     alt: new FormControl<string | null>(null),
   });

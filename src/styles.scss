@@ -12,3 +12,20 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+button {
+  background: transparent;
+  border: 0;
+}
+
+td {
+  vertical-align: middle;
+}
+
+tr > td:last-of-type {
+  text-align: right;
+}
+
+tr > th:last-of-type {
+  text-align: right;
+}

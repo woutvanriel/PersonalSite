@@ -1,13 +1,24 @@
-<div class="loading-div">
+<!-- <div class="loading-div">
   <div class="inner">
-    <b>{{ text }}</b>
+    <b></b>
     <div class="btn-row">
-      <button (click)="choose(false)" class="btn-default btn-delete">
-        <i class="fas fa-times"></i>nee
-      </button>
-      <button (click)="choose(true)" class="btn-default btn-green">
-        <i class="fas fa-check"></i>ja
-      </button>
+    </div>
+  </div>
+</div> -->
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ text }}</h5>
+      </div>
+      <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+        <button (click)="choose(true)" class="btn btn-lg btn-danger">
+          <i class="fas fa-check"></i>ja
+        </button>
+        <button (click)="choose(false)" class="btn btn-lg btn-secondary">
+          <i class="fas fa-times"></i>nee
+        </button>
+      </div>
     </div>
   </div>
 </div>

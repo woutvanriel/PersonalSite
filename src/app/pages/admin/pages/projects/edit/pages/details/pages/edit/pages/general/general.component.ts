@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Language } from 'src/app/interfaces/language';
-import { DetailFromPartial } from 'src/app/interfaces/page-details';
+import { DetailFromPartial } from 'src/app/interfaces/project-details';
 import { AlertService } from 'src/app/services/alert.service';
 import { ConfirmService } from 'src/app/services/confirm.service';
 import { LanguageService } from 'src/app/services/language.service';
-import { PageDetailService } from 'src/app/services/page-detail.service';
+import { ProjectDetailService } from 'src/app/services/project-detail.service';
 
 @Component({
   selector: 'app-general',
@@ -19,14 +19,14 @@ export class GeneralComponent implements OnInit {
     language: new FormControl<string | null>(null, Validators.required),
     title: new FormControl<string | null>('', Validators.required),
     description: new FormControl<string | null>(''),
-    Page: new FormControl<string | null>(null),
+    project: new FormControl<string | null>(null),
   });
 
   languages: Language[] = [];
 
   constructor(
     private language: LanguageService,
-    private detail: PageDetailService,
+    private detail: ProjectDetailService,
     private ar: ActivatedRoute,
     private router: Router,
     private alert: AlertService,
@@ -43,7 +43,8 @@ export class GeneralComponent implements OnInit {
     });
     this.ar.parent?.parent?.parent?.parent?.parent?.params.subscribe(
       (params) => {
-        this.Form.controls.Page.setValue(params['id']);
+        console.log(params);
+        this.Form.controls.project.setValue(params['id']);
       },
     );
   }

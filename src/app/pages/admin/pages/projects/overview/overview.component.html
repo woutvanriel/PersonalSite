@@ -1,16 +1,16 @@
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Project</th>
       <th>Slug</th>
-      <th><a routerLink="new">Nieuw</a></th>
+      <th><a class="btn btn-outline-primary" routerLink="new">Nieuw</a></th>
     </tr>
   </thead>
   <tbody cdkDropList (cdkDropListDropped)="drop($event)">
     <tr cdkDrag *ngFor="let project of projects">
       <td>{{ project.title }}</td>
       <td>{{ project.slug }}</td>
-      <td><a [routerLink]="project.id">Aanpassen</a></td>
+      <td><a class="btn btn-outline-secondary" [routerLink]="project.id">Aanpassen</a></td>
     </tr>
   </tbody>
 </table>
