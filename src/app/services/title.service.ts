@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TitleService {
   constructor() {}
 
-  setTitle(title: string) {
-    document.title = `Wout van Riel - ${title}`;
+  setTitle(title: string | null | undefined) {
+    if (title) document.title = `Wout van Riel - ${title}`;
   }
 }

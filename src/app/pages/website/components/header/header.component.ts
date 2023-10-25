@@ -1,21 +1,23 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Language } from 'src/app/interfaces/language';
 import { Page } from 'src/app/interfaces/page';
 import { LanguageService } from 'src/app/services/language.service';
 import { PageService } from 'src/app/services/page.service';
 import { PreferredLanguageService } from 'src/app/services/preferred-language.service';
 import { ChangeLanguageComponent } from '../change-language/change-language.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   pages: Page[] = [];
   languages: Language[] = [];
+  subscription: Subscription | undefined;
 
   constructor(
     private page: PageService,
@@ -27,6 +29,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getPages();
     this.getLanguages();
+    this.subscription = this.preferredLanguage.languageChanged.subscribe(() => {
+      this.getPages();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   getPages() {

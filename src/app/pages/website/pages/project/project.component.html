@@ -1,4 +1,4 @@
-<section class="py-5 text-center" *ngIf="project && project.details">
+<section class="py-5 text-center" *ngIf="project && project.details && project.details[0]">
   <div class="text-center pb-5">
     <h1 class="py-lg-5 display-4">{{ project.details[0].title }}</h1>
     <p class="lead text-body-secondary">{{ project.details[0].description }}</p>

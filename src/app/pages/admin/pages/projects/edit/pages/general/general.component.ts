@@ -43,6 +43,7 @@ export class GeneralComponent implements OnInit {
       this.project.getProject(this.Form.value.id).then((res) => {
         this.Form.patchValue({
           slug: res.slug,
+          title: res.title,
         });
         this.Images = res.images || [];
       });

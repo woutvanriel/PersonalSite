@@ -26,7 +26,9 @@ export class PageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.getPage(params['slug']);
-      this.subscription = this.preferredLanguage.languageChanged.subscribe(() => {
+    });
+    this.subscription = this.preferredLanguage.languageChanged.subscribe(() => {
+      this.activatedRoute.params.subscribe(params => {
         this.getPage(params['slug']);
       });
     });
@@ -40,7 +42,7 @@ export class PageComponent implements OnInit, OnDestroy {
     this.pages.getPageSlug(slug).then(res => {
       console.log(res);
       this.page = res;
-      this.title.setTitle(res.details![0].title!)
+      this.title.setTitle(res.details?.[0]?.title)
     });
   }
 }

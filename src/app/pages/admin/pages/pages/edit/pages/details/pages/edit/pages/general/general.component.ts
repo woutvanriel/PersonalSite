@@ -74,7 +74,7 @@ export class GeneralComponent implements OnInit {
         });
       else
         this.detail.editDetail(DetailFromPartial(this.Form.value)).then(() => {
-          this.router.navigate(['..'], { relativeTo: this.ar });
+          this.alert.show('Detail is opgeslagen.');
         });
     }
   }
