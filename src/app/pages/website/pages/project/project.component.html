@@ -4,6 +4,24 @@
     <p class="lead text-body-secondary">{{ project.details[0].description }}</p>
   </div>
   <div class="py-3 bg-body-tertiary ">
+    <div *ngIf="project.details" class="card shadow-sm">
+      <div class="card-img-top">
+        <ngb-carousel>
+          <ng-template ngbSlide *ngFor="let image of project.images">
+            <div class="picsum-img-wrapper">
+              <img class="carousel-image" [src]="image.location | media" />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ project.details[0].title }}</h5>
+        <p class="card-text">{{ project.details[0].description }}</p>
+        <a [routerLink]="['/project', project.slug]" class="btn btn-primary">Lees meer</a>
+      </div>
+    </div>
+  </div>
+  <div class="py-3 bg-body-tertiary ">
     <article class="p-2" *ngFor="let content of project.details[0].content">
       <div class="container">
         <app-content-container [content]="content"></app-content-container>

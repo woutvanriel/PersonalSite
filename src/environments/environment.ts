@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://localhost:7029/api',
-  mediaUrl: 'http://localhost:8080',
+  apiUrl: 'https://api.woutvanriel.nl/api',
+  mediaUrl: 'https://media.woutvanriel.nl',
 };
