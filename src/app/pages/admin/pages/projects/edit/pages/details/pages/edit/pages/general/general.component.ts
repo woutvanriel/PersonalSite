@@ -43,7 +43,6 @@ export class GeneralComponent implements OnInit {
     });
     this.ar.parent?.parent?.parent?.parent?.parent?.params.subscribe(
       (params) => {
-        console.log(params);
         this.Form.controls.project.setValue(params['id']);
       },
     );

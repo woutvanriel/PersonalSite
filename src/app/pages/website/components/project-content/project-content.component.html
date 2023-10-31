@@ -14,10 +14,10 @@
         <div class="card-body">
           <h5 class="card-title">{{ project.details[0].title }}</h5>
           <p class="card-text">{{ project.details[0].description }}</p>
-          <a [routerLink]="['/project', project.slug]" class="btn btn-primary">Lees meer</a>
+          <a [routerLink]="['/project', project.slug]" class="btn btn-primary">{{ 'read-more' | translate }}</a>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary" *ngIf="canloadmore" (click)="getProjecten()">Meer</button>
+    <button class="btn btn-primary" *ngIf="canloadmore" (click)="getProjecten()">{{ 'more' | translate }}</button>
   </div>
 </section>

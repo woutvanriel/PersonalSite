@@ -22,7 +22,6 @@ export class LoginComponent {
 
   submit() {
     this.Form.markAllAsTouched();
-    console.log(this.Form, this.Form.valid);
     if (this.Form.valid)
       this.auth
         .login(this.Form.value.username!, this.Form.value.password!)

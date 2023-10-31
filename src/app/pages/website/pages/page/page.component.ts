@@ -40,7 +40,6 @@ export class PageComponent implements OnInit, OnDestroy {
 
   getPage(slug: string) {
     this.pages.getPageSlug(slug).then(res => {
-      console.log(res);
       this.page = res;
       this.title.setTitle(res.details?.[0]?.title)
     });

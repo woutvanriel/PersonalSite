@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TitleService {
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   setTitle(title: string | null | undefined) {
-    if (title) document.title = `Wout van Riel - ${title}`;
+    if (title) this.document.title = `Wout van Riel - ${title}`;
   }
 }

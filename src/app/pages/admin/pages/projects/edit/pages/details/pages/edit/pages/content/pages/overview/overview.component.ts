@@ -23,7 +23,6 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     this.ar.parent?.parent?.parent?.parent?.params.subscribe(
       (params) => {
-        console.log(params);
         this.detailId = params['id'];
         this.getContent();
       }

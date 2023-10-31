@@ -38,7 +38,6 @@ export class ProjectComponent {
 
   getProject(slug: string) {
     this.projects.getProjectSlug(slug).then(res => {
-      console.log(res);
       this.project = res;
       this.title.setTitle(res.details![0].title!)
     });

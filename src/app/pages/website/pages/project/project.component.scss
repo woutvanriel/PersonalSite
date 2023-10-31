@@ -19,3 +19,13 @@ article:last-of-type {
   flex-grow: 1;
 }
 
+.card {
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+  margin: auto;
+  max-width: 500px;
+  max-height: 500px;
+}
+

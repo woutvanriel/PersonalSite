@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './pages/admin/interceptors/auth.interceptor';
 import { MediaPipe } from './pipes/media.pipe';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 @NgModule({
   declarations: [AppComponent, AlertComponent, ConfirmComponent],
@@ -33,6 +34,7 @@ import { MediaPipe } from './pipes/media.pipe';
       useClass: AuthInterceptor,
       multi: true,
     },
+    provideClientHydration()
   ],
   bootstrap: [AppComponent],
 })

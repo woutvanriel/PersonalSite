@@ -17,9 +17,7 @@ export class AuthService {
     try {
       this.jwt = localStorage.getItem('jwt');
     } catch (err) {
-      console.log('insluiting');
     }
-    console.log(`jwt: ${this.jwt}`);
   }
 
   login(username: string, password: string) {

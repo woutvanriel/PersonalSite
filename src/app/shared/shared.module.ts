@@ -4,10 +4,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { MediaPipe } from '../pipes/media.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 @NgModule({
-  declarations: [MediaPipe],
+  declarations: [MediaPipe, TranslatePipe],
   imports: [ReactiveFormsModule, FormsModule, QuillModule.forRoot(), NgbModule],
-  exports: [ReactiveFormsModule, FormsModule, QuillModule, MediaPipe, NgbModule],
+  exports: [ReactiveFormsModule, FormsModule, QuillModule, MediaPipe, NgbModule, TranslatePipe],
 })
 export class SharedModule {}
