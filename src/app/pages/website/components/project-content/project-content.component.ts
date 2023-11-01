@@ -13,7 +13,7 @@ export class ProjectContentComponent implements OnInit {
 
   projects: Project[] = [];
   page = 0;
-  canloadmore = false;
+  canloadmore = true;
 
   constructor(
     private project: ProjectService
@@ -28,7 +28,7 @@ export class ProjectContentComponent implements OnInit {
     this.project.getProjectsDetails(this.page).then(res => {
       this.projects = this.projects.concat(res);
       this.page++;
-      if (this.projects.length > 15) this.canloadmore = true;
+      if (res.length >= 14) this.canloadmore = true;
     });
   }
 }
